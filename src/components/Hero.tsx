@@ -16,7 +16,7 @@ export function Hero({ onOpenModal }: HeroProps) {
           <span>Новый сезон скоро начнется</span>
         </div>
         
-        {/* Адаптивный размер текста: от 4xl на мобилках до 8xl на ПК */}
+        {/* Адаптивный размер текста: от 5xl на мобилках до 8xl на ПК */}
         <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-black leading-[1] tracking-tighter text-white mb-6 uppercase">
           Марафон <br />
           Похудения <br />
@@ -54,7 +54,7 @@ export function Hero({ onOpenModal }: HeroProps) {
       </div>
 
       <div className="w-full lg:w-1/2 relative z-10 flex justify-center mt-16 lg:mt-0">
-        <div className="relative w-full max-w-sm md:max-w-lg">
+        <div className="relative w-full max-w-sm md:max-w-lg mt-8 md:mt-0">
           <div className="relative rounded-[2rem] md:rounded-4xl overflow-hidden shadow-2xl shadow-black/50 aspect-3/4 border border-white/5 bg-stone-900">
             <img 
               src="https://wsrv.nl/?url=images.unsplash.com/photo-1606902965551-dce093cda6e7&w=1000&q=80&output=webp" 
@@ -64,8 +64,8 @@ export function Hero({ onOpenModal }: HeroProps) {
             <div className="absolute inset-0 bg-linear-to-t from-[#050505] via-transparent to-transparent opacity-60"></div>
           </div>
           
-          {/* Адаптивная карточка слева внизу: scale-90 и left-2 на мобилках */}
-          <div className="absolute -bottom-4 left-2 md:-bottom-6 md:-left-6 scale-90 md:scale-100 origin-bottom-left bg-[#0a0a0a]/90 backdrop-blur-xl border border-white/10 p-3 md:p-4 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.6)] flex items-center gap-3 md:gap-4 animate-[bounce_4s_ease-in-out_infinite]">
+          {/* Адаптивная карточка слева внизу: scale-[0.85] и -left-4 на мобилках */}
+          <div className="absolute -bottom-4 -left-4 md:-bottom-6 md:-left-6 scale-[0.85] md:scale-100 origin-bottom-left bg-[#0a0a0a]/90 backdrop-blur-xl border border-white/10 p-3 md:p-4 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.6)] flex items-center gap-3 md:gap-4 animate-[bounce_4s_ease-in-out_infinite]">
             <div className="w-10 h-10 md:w-12 md:h-12 bg-[#CCFF00]/10 text-[#CCFF00] rounded-xl flex items-center justify-center shrink-0">
               <Trophy className="w-5 h-5 md:w-6 md:h-6" />
             </div>
@@ -75,11 +75,14 @@ export function Hero({ onOpenModal }: HeroProps) {
             </div>
           </div>
           
-          {/* Адаптивная карточка справа сверху: scale-90 и right-2 на мобилках */}
-          <div className="absolute top-6 right-2 md:top-12 md:-right-8 scale-90 md:scale-100 origin-top-right bg-[#0a0a0a]/90 backdrop-blur-xl border border-white/10 p-3 md:p-4 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.6)] flex items-center gap-3 md:gap-4">
+          {/* Адаптивная карточка справа сверху: scale-[0.85] и -right-4 на мобилках */}
+          <div className="absolute top-6 -right-4 md:top-12 md:-right-8 scale-[0.85] md:scale-100 origin-top-right bg-[#0a0a0a]/90 backdrop-blur-xl border border-white/10 p-3 md:p-4 rounded-2xl shadow-[0_8px_32px_rgba(0,0,0,0.6)] flex items-center gap-3 md:gap-4">
+            
+            {/* Идеально ровный кружок благодаря shrink-0 */}
             <div className="w-12 h-12 md:w-14 md:h-14 shrink-0 bg-[#00FFFF]/10 text-[#00FFFF] rounded-full flex items-center justify-center font-black text-sm md:text-base tracking-tighter border border-[#00FFFF]/20">
               100%
             </div>
+            
             <div>
               <p className="text-xs md:text-sm font-bold text-white leading-tight">Индивидуальный</p>
               <p className="text-[10px] md:text-xs text-stone-400 font-medium leading-tight">План Питания</p>
