@@ -1,6 +1,11 @@
 import { Check } from 'lucide-react';
 
-export function Pricing() {
+interface PricingProps {
+  isAuth: boolean;
+  onOpenModal: () => void;
+}
+
+export function Pricing({ isAuth, onOpenModal }: PricingProps) {
   const tiers = [
     {
       name: 'Базовый',
@@ -29,6 +34,15 @@ export function Pricing() {
     }
   ];
 
+  // Функция обработки клика по кнопке тарифа
+  const handleAction = () => {
+    if (isAuth) {
+      window.open('https://t.me/your_telegram_bot_or_chat', '_blank'); // Твоя ссылка на ТГ
+    } else {
+      onOpenModal();
+    }
+  };
+
   return (
     <section id="pricing" className="py-24 px-6 md:px-12 lg:px-24 bg-[#121212] relative overflow-hidden">
       <div className="max-w-5xl mx-auto text-center relative z-10">
@@ -43,7 +57,7 @@ export function Pricing() {
           {tiers.map((tier, idx) => (
             <div 
               key={idx} 
-              className={`relative bg-white/5 backdrop-blur-xl rounded-[2rem] p-10 text-left transition-all duration-300 ${
+              className={`relative bg-white/5 backdrop-blur-xl rounded-4xl p-10 text-left transition-all duration-300 ${
                 tier.popular 
                 ? 'border-2 border-[#CCFF00] shadow-[0_0_30px_rgba(204,255,0,0.1)] scale-100 md:scale-105 z-10' 
                 : 'border border-white/10 hover:border-white/20 hover:shadow-2xl hover:bg-white/10'
@@ -73,13 +87,15 @@ export function Pricing() {
               </ul>
               
               <button 
+                onClick={handleAction}
                 className={`w-full py-4 rounded-xl text-lg font-bold transition-all ${
                   tier.popular 
                   ? 'bg-[#CCFF00] hover:bg-[#b3e600] text-[#050505] shadow-[0_0_20px_rgba(204,255,0,0.3)] hover:shadow-[0_0_30px_rgba(204,255,0,0.5)]' 
                   : 'bg-white/10 hover:bg-white/20 text-white border border-white/10'
                 }`}
               >
-                Выбрать {tier.name}
+                {/* Меняем текст кнопки в зависимости от статуса авторизации */}
+                {isAuth ? 'Связаться в Telegram' : `Выбрать ${tier.name}`}
               </button>
             </div>
           ))}
